@@ -2,14 +2,28 @@ import { useState, useEffect } from "react"
 import { web3 } from '../lib/web3';
 
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import ENS, { getEnsAddress } from '@ensdomains/ensjs';
+
+const ens = new ENS({
+  provider: web3.currentProvider,
+  ensAddress: getEnsAddress('1'),
+});
 
 const EnsName = function ({ address }) {
   // TODO!
-  // get the address from outside
-  // format it
   // check for ENS domain
   // get image if it has one
-  // make jazzicon if not
+  const [name, setName] = useState();
+
+  useEffect(
+    async function () {
+      const n = await ens.getName(address);
+      if (n.name) {
+        setName(n.name);
+      }
+    },
+    [address]
+  );
 
   let formattedAddress = address.substr(0, 8) + '...' + address.substr(-4);
 
@@ -20,7 +34,7 @@ const EnsName = function ({ address }) {
 
       <div className='name'>
         <span className='primary'>
-          {formattedAddress}
+          {name ? name : formattedAddress}
           {/* ENS name if one here */}
         </span>
         <span className='secondary'>{/* formatted address here */}</span>
