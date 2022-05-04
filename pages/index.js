@@ -41,6 +41,11 @@ export default function Home() {
     [accounts]
   );
 
+  useEffect(async function () {
+    let a = await window.ethereum.request({ method: 'eth_accounts' });
+    setAccounts(a);
+  }, []);
+
   return (
     <main>
       <header>
