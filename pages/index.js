@@ -22,7 +22,7 @@ export default function Home() {
   // 4. make the user name look good
   // 5. let the user post their own reply
 
-  let account = '0x1234';
+  let account = '1234';
 
   return (
     <main>

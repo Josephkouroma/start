@@ -8,7 +8,14 @@ const Account = function ({ account }) {
   // that when its clicked, will prompt us to login
   // and store the info on the page
 
-  return <span>{account}</span>;
+  if (account) {
+    return <span>{account}</span>;
+  } else {
+    return <button>Connect</button>;
+  }
+
+  
+     
 };
 
 export default Account;
