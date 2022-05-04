@@ -24,8 +24,8 @@ export default function Home() {
 
   let account;
 
-  const connect = function () {
-    window.ethereum.request({ method: 'eth_requestAccounts' });
+  const connect = async function () {
+    account = await window.ethereum.request({ method: 'eth_requestAccounts' });
   };
 
   return (
