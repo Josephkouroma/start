@@ -44,6 +44,10 @@ export default function Home() {
   useEffect(async function () {
     let a = await window.ethereum.request({ method: 'eth_accounts' });
     setAccounts(a);
+
+    window.ethereum.on('accountsChanged', function (a) {
+      setAccounts(a);
+    });
   }, []);
 
   return (
