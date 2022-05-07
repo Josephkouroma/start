@@ -125,7 +125,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='answers'>{answersArea}</section>
+      <section className='answers'>
+        {answersArea}
+        <AnswerForm
+          accounts={accounts}
+          setAnswers={setAnswers}
+          isLoggedIn={isLoggedIn}
+        />
+      </section>
 
       <Head>
         <title>
