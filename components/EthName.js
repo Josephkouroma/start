@@ -41,7 +41,7 @@ const EnsName = function ({ address }) {
   let icon = <Jazzicon diameter={32} seed={jsNumberForAddress(address)} />;
   return (
     <div className='eth-name'>
-      <div className='icon'>{avatar ? avatar : icon}</div>
+      <div className='icon'>{avatar ? <img src={avatar} /> : icon}</div>
 
       <div className='name'>
         <span className='primary'>
